@@ -1,0 +1,18 @@
+﻿<div id="navigation">
+  <ul class="pagination pagination-sm">
+    <li data-toggle="tooltip" title="Add List">
+      <a href="#" ng-click="$ctrl.showListInput()"><span class="glyphicon glyphicon-plus"></span></a>
+    </li>
+    <li ng-repeat="list in (sortedListMaster = (listMaster | orderBy:'listName')) track by $index">
+      <a href="#" ng-click="$ctrl.selectList(list)">{{ list.listName }}</a>
+    </li>
+  </ul>
+
+  <div id="listInputDisplay" ng-show="listInputDisplay">
+    <input type="text" size="18" placeholder="Enter list name" ng-model="inputListName">
+    <button ng-click="createList(inputListName)" class="btn btn-success btn-sm" data-toggle="tooltip" title="Add">
+      <span class="glyphicon glyphicon-plus"></span></button>
+    <button ng-click="$ctrl.hideListInput()" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Cancel">
+      <span class="glyphicon glyphicon-remove"></span></button>
+  </div>
+</div>
